@@ -134,10 +134,16 @@ document.getElementById("btn").addEventListener("click", function(){
 
 //add event: when the top button is clicked move the viewport the top again
 topBtn.addEventListener("click",function(){
-	window.scrollTo(0,0)
+	window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
 });
 
+navMenu.addEventListener("click",function(event){
+	event.preventDefault();
 
+	let location = document.getElementById(`${event.target.dataset.nav}`);
+
+    location.scrollIntoView({ behavior: "smooth" });
+});
 //add the active class to the active section in the viewport 
 //add top button
 window.onscroll = function() {
@@ -170,4 +176,3 @@ window.onscroll = function() {
                 //==========================> start of the program  <===========================//
 
 start();
-
